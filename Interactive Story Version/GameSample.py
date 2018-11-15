@@ -4,19 +4,30 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
+import sys
+
 ground_vertices = (
     (-10, -0.1, 20),
     (10, -0.1, 20),
     (10, -0.1, -300),
     (10, -0.1, -300),
     )
+class ground(object):
+    def ground():
+        glBegin(GL_QUADS)
+        for vertex in ground_vertices:
+            glColor3fv((0, 0.5, 0.5))
+            glVertex3fv(vertex)
+        glEnd()
 
-def ground():
-    glBegin(GL_QUADS)
-    for vertex in ground_vertices:
-        glColor3fv((0, 0.5, 0.5))
-        glVertex3fv(vertex)
-    glEnd()
+class player(object):
+    def __init__(self, x, y, z, width, height):
+        self.x = x
+        self.y = y
+        self.z = z
+        self.width = width
+        self.height = height
+        
 
 def main():
     pygame.init()
