@@ -3,7 +3,8 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define e = Character("PrototypeBoy")
+define f = Character("PrototypeGrape")
 
 
 # The game starts here.
@@ -14,21 +15,49 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene background1
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show prototypeboy
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    e "This is the Linear Prototype."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    hide prototypeboy
 
-    e "CHAOS IS YOUR MASTER"
+    show grapeboy
+
+    f "And I'm a different Character"
+
+    hide grapeboy
+
+    show prototypeboy
+
+    e "The Story Progresses through many different mediums"
+
+    e "You must choose the fate of grapeboy."
+
+    menu:
+        "What is the ultimate fate of Grapeboy?"
+
+        "Pet him.":
+            "Why are you petting him, he's a grape"
+
+        "Kill Him!":
+            "Well done... You just killed a poor innocent grape"
+
+        "Leave him alone":
+            "He remains prideful and not dead."
+
+    scene background2
+
+    show prototypeboy
+
+    e "This is the conclusion"
 
     # This ends the game.
 
