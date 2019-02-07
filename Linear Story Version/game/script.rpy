@@ -3,9 +3,10 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("PrototypeBoy")
-define f = Character("PrototypeGrape")
+define e = Character("Wild Dog")
+define f = Character("You")
 
+default torch = False
 
 # The game starts here.
 
@@ -24,6 +25,43 @@ label start:
     show prototypeboy
 
     # These display lines of dialogue.
+    "You find yourself in a dark, lonely forest"
+    "With naught to see except for lumber"
+    "There are very little options available"
+
+    menu:
+        "What will you do?"
+
+        "Woot":
+            jump examine_surroundings
+
+        "woot2":
+            jump headfirst
+
+
+    label examine_surroundings
+
+    "You find a torch to light your way. You then go into the dark and creepy forest"
+
+    $ torch = True
+
+    jump lost
+
+    label headfirst
+
+    "You rush in headfirst into the dark forest"
+
+    jump lost
+
+    label lost
+
+    "After a few minutes of exploring the dark forest, you start to notice that you're going in circles"
+
+    if torch:
+        "Luckily you found a torch and"
+    else:
+        "You continue to stumble through the dark"
+
 
     e "This is the Linear Prototype."
 
@@ -41,17 +79,7 @@ label start:
 
     e "You must choose the fate of grapeboy."
 
-    menu:
-        "What is the ultimate fate of Grapeboy?"
 
-        "Pet him.":
-            "Why are you petting him, he's a grape"
-
-        "Kill Him!":
-            "Well done... You just killed a poor innocent grape"
-
-        "Leave him alone":
-            "He remains prideful and not dead."
 
     scene background2
 
